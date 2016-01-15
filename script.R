@@ -38,22 +38,19 @@ spec <- mutate(def1, suma = rowSums(def1[4:355], na.rm = TRUE))
 spec2 <- select(spec, ID.x, suma, Fumador, Fumador.pas)
 
 # n fumadors
-sum(spec$Fumador %in% "a. Sí")
+sum(spec$Fumador %in% "a. S?")
 
 #n no fumadors
 sum(spec$Fumador %in% "b. No")
 
 # n fumadors passius
-sum(spec$Fumador.pas %in% "a. Sí, otros")
+sum(spec$Fumador.pas %in% "a. S?, otros")
 
 #n fumadors no passius
 sum(spec$Fumador.pas %in% "e. No")
 
-# ANOVA Fumadors per càrrega bacteriana
+# ANOVA Fumadors per c?rrega bacteriana
 summary(aov(suma~Fumador, data = spec))
 
-# ANOVA fumadors passius per càrrega bacteriana
+# ANOVA fumadors passius per c?rrega bacteriana
 summary(aov(suma~Fumador, data = spec))
-
-for i:n length(ncol(def)):
-        qplot(i, data = def, fill = Fumador)
